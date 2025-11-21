@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Sai Homeo Clinic | Homeopathic Clinic</title>
+    
+    <!-- Preconnect to speed up external connections -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -110,9 +115,10 @@
 
     <!-- Hero Banner Section -->
     <section id="home" class="relative pt-20 min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Image with Overlay -->
+        <!-- Background Image with Overlay (Optimized size w=1200 for faster load) -->
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1544367563-12123d8965cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+            <img src="https://images.unsplash.com/photo-1544367563-12123d8965cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                 loading="eager"
                  alt="Calming nature background" 
                  class="w-full h-full object-cover opacity-90"
                  onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#e3ebe3'">
@@ -125,7 +131,7 @@
                     <i data-lucide="wifi" class="w-4 h-4"></i>
                     <span>100% Online Consultations</span>
                 </div>
-                <!-- Responsive Typography: text-4xl on mobile, growing to text-7xl on large screens -->
+                <!-- Responsive Typography -->
                 <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                     Restore Your Balance <span class="text-sage-600">From Home</span>
                 </h1>
@@ -147,9 +153,12 @@
                     Expert homeopathic care delivered digitally. Book an appointment, and our doctors will reach out to you via voice or video call.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#contact" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-white bg-sage-600 hover:bg-sage-700 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 w-full sm:w-auto">
-                        Book Tele-Consultation
-                        <i data-lucide="phone-call" class="ml-2 w-5 h-5"></i>
+                    <!-- Removed "Book Tele-Consultation" button as requested -->
+                    
+                    <!-- New Button linking directly to the form -->
+                    <a href="#appointmentForm" class="inline-flex justify-center items-center px-8 py-4 border-2 border-sage-600 text-lg font-medium rounded-full text-sage-700 bg-white/50 hover:bg-white transition-all w-full sm:w-auto shadow-sm hover:shadow-md">
+                        Fill Appointment Form
+                        <i data-lucide="file-edit" class="ml-2 w-5 h-5"></i>
                     </a>
                 </div>
             </div>
@@ -164,10 +173,9 @@
     </section>
 
     <!-- Key Features Banner -->
-    <!-- Responsive Padding: py-12 on mobile, py-16 on desktop -->
-    <section id="features" class="py-12 md:py-16 bg-white border-b border-sage-100">
+    <!-- Reduced bottom padding to pb-6 to close gap with next section -->
+    <section id="features" class="pt-12 pb-6 md:pt-16 md:pb-10 bg-white border-b border-sage-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Responsive Grid: 1 col mobile, 3 cols tablet/desktop -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div class="p-6 rounded-2xl bg-sage-50 hover:bg-sage-100 transition-colors duration-300">
                     <div class="w-14 h-14 mx-auto bg-sage-200 rounded-full flex items-center justify-center mb-4 text-sage-700">
@@ -175,6 +183,11 @@
                     </div>
                     <h3 class="text-xl font-serif font-semibold text-gray-900 mb-2">Online Only</h3>
                     <p class="text-gray-600">No travel required. Consult with our doctors via phone or video call from anywhere.</p>
+                    
+                    <!-- Added Link to Form -->
+                    <a href="#appointmentForm" class="inline-flex items-center gap-1 text-sage-600 font-bold mt-4 hover:text-sage-800 hover:underline">
+                        Book Appointment <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
                 </div>
                 <div class="p-6 rounded-2xl bg-sage-50 hover:bg-sage-100 transition-colors duration-300">
                     <div class="w-14 h-14 mx-auto bg-sage-200 rounded-full flex items-center justify-center mb-4 text-sage-700">
@@ -195,7 +208,8 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-6 md:py-10 bg-sage-50">
+    <!-- Reduced top padding (pt-2 md:pt-8) to remove blank space above -->
+    <section id="about" class="pt-2 pb-10 md:pt-8 md:pb-20 bg-sage-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
                 <div class="relative mb-6 lg:mb-0">
@@ -499,7 +513,7 @@
         function handleFormSubmit(e) {
             e.preventDefault();
             const button = e.target.querySelector('button');
-            const originalText = button.innerText;
+            const originalText = "Request Callback via WhatsApp"; // Ensure we know the original text
             
             // Get form values
             const name = document.getElementById('name').value;
@@ -526,30 +540,37 @@ _Sent from Sai Homeo Clinic Website_`;
             // Create WhatsApp URL
             const whatsappUrl = `https://wa.me/${clinicWhatsApp}?text=${encodeURIComponent(whatsappMessage)}`;
 
-            // Loading state
+            // 1. Visual Feedback (Immediate)
             button.disabled = true;
             button.innerText = "Opening WhatsApp...";
             button.classList.add('opacity-75');
-
-            // Show Toast
+            
             const toast = document.getElementById('toast');
             toast.classList.remove('translate-y-full');
 
-            // Open WhatsApp (Short delay to allow UI update)
-            setTimeout(() => {
+            // 2. Open WhatsApp (Immediate - Critical for Mobile Popup Blockers)
+            // We use a try-catch and specific fallback for reliability
+            try {
+                // Attempt to open in new tab/app
                 window.open(whatsappUrl, '_blank');
+            } catch (err) {
+                console.error("Popup blocked or error:", err);
+                // Fallback: Redirect current tab if popup fails
+                window.location.href = whatsappUrl;
+            }
 
-                // Reset form UI
+            // 3. Reset Form UI (After a delay so user sees the feedback)
+            setTimeout(() => {
                 e.target.reset();
                 button.disabled = false;
                 button.innerText = originalText;
                 button.classList.remove('opacity-75');
                 
-                // Hide Toast after delay
+                // Hide Toast
                 setTimeout(() => {
                     toast.classList.add('translate-y-full');
-                }, 4000);
-            }, 800);
+                }, 3000);
+            }, 1500);
         }
     </script>
 </body>
