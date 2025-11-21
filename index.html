@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth scroll-pt-24">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -103,7 +103,8 @@
         </div>
 
         <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl z-40">
+        <!-- FIX: Changed absolute to fixed + top-20 so it stays visible when scrolling -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 fixed top-20 w-full shadow-xl z-40 left-0">
             <div class="px-4 pt-2 pb-6 space-y-2">
                 <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-sage-600 hover:bg-sage-50">Home</a>
                 <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-sage-600 hover:bg-sage-50">About</a>
@@ -115,7 +116,7 @@
 
     <!-- Hero Banner Section -->
     <section id="home" class="relative pt-20 min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Image with Overlay (Optimized size w=1200 for faster load) -->
+        <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1544367563-12123d8965cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
                  loading="eager"
@@ -153,9 +154,6 @@
                     Expert homeopathic care delivered digitally. Book an appointment, and our doctors will reach out to you via voice or video call.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <!-- Removed "Book Tele-Consultation" button as requested -->
-                    
-                    <!-- New Button linking directly to the form -->
                     <a href="#appointmentForm" class="inline-flex justify-center items-center px-8 py-4 border-2 border-sage-600 text-lg font-medium rounded-full text-sage-700 bg-white/50 hover:bg-white transition-all w-full sm:w-auto shadow-sm hover:shadow-md">
                         Fill Appointment Form
                         <i data-lucide="file-edit" class="ml-2 w-5 h-5"></i>
@@ -173,7 +171,6 @@
     </section>
 
     <!-- Key Features Banner -->
-    <!-- Reduced bottom padding to pb-6 to close gap with next section -->
     <section id="features" class="pt-12 pb-6 md:pt-16 md:pb-10 bg-white border-b border-sage-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -208,14 +205,13 @@
     </section>
 
     <!-- About Section -->
-    <!-- Reduced top padding (pt-2 md:pt-8) to remove blank space above -->
     <section id="about" class="pt-2 pb-10 md:pt-8 md:pb-20 bg-sage-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
                 <div class="relative mb-6 lg:mb-0">
                     <!-- Abstract shape background -->
                     <div class="absolute -top-4 -left-4 w-2/3 h-2/3 bg-sage-200 rounded-full blur-3xl opacity-50"></div>
-                    <!-- Responsive Image Height: h-64 mobile, h-[400px] desktop (Reduced height) -->
+                    <!-- Responsive Image Height -->
                     <img src="https://images.unsplash.com/photo-1576091160550-217358c7b81e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
                          alt="Doctor on video call" 
                          class="relative rounded-2xl shadow-2xl w-full object-cover h-64 sm:h-96 md:h-[400px]"
@@ -271,9 +267,8 @@
                 <p class="text-xl text-gray-600">Homeopathy offers effective solutions for a wide range of acute and chronic conditions.</p>
             </div>
 
-            <!-- Responsive Grid: 1 col mobile, 2 cols tablet, 3 cols desktop -->
+            <!-- Responsive Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <!-- Service Card 1 -->
                 <div class="group p-8 border border-gray-100 rounded-2xl hover:shadow-xl hover:border-sage-200 transition-all duration-300 bg-white">
                     <div class="w-12 h-12 bg-sage-100 rounded-lg flex items-center justify-center mb-6 text-sage-600 group-hover:bg-sage-600 group-hover:text-white transition-colors">
                         <i data-lucide="wind" class="w-6 h-6"></i>
@@ -281,8 +276,6 @@
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Allergies & Respiratory</h3>
                     <p class="text-gray-600">Effective relief for asthma, hay fever, sinusitis, and chronic coughs without drowsiness.</p>
                 </div>
-
-                <!-- Service Card 2 -->
                 <div class="group p-8 border border-gray-100 rounded-2xl hover:shadow-xl hover:border-sage-200 transition-all duration-300 bg-white">
                     <div class="w-12 h-12 bg-sage-100 rounded-lg flex items-center justify-center mb-6 text-sage-600 group-hover:bg-sage-600 group-hover:text-white transition-colors">
                         <i data-lucide="smile" class="w-6 h-6"></i>
@@ -290,8 +283,6 @@
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Skin Conditions</h3>
                     <p class="text-gray-600">Deep healing for eczema, psoriasis, acne, and dermatitis by addressing internal imbalances.</p>
                 </div>
-
-                <!-- Service Card 3 -->
                 <div class="group p-8 border border-gray-100 rounded-2xl hover:shadow-xl hover:border-sage-200 transition-all duration-300 bg-white">
                     <div class="w-12 h-12 bg-sage-100 rounded-lg flex items-center justify-center mb-6 text-sage-600 group-hover:bg-sage-600 group-hover:text-white transition-colors">
                         <i data-lucide="baby" class="w-6 h-6"></i>
@@ -299,8 +290,6 @@
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Pediatrics</h3>
                     <p class="text-gray-600">Gentle care for immunity, teething, colic, behavioral issues, and recurrent infections.</p>
                 </div>
-
-                <!-- Service Card 4 -->
                 <div class="group p-8 border border-gray-100 rounded-2xl hover:shadow-xl hover:border-sage-200 transition-all duration-300 bg-white">
                     <div class="w-12 h-12 bg-sage-100 rounded-lg flex items-center justify-center mb-6 text-sage-600 group-hover:bg-sage-600 group-hover:text-white transition-colors">
                         <i data-lucide="brain-circuit" class="w-6 h-6"></i>
@@ -308,8 +297,6 @@
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Mental Wellness</h3>
                     <p class="text-gray-600">Support for anxiety, depression, insomnia, and stress-related disorders.</p>
                 </div>
-
-                <!-- Service Card 5 -->
                 <div class="group p-8 border border-gray-100 rounded-2xl hover:shadow-xl hover:border-sage-200 transition-all duration-300 bg-white">
                     <div class="w-12 h-12 bg-sage-100 rounded-lg flex items-center justify-center mb-6 text-sage-600 group-hover:bg-sage-600 group-hover:text-white transition-colors">
                         <i data-lucide="activity" class="w-6 h-6"></i>
@@ -317,8 +304,6 @@
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Chronic Pain</h3>
                     <p class="text-gray-600">Management of arthritis, migraines, and joint pain focused on long-term relief.</p>
                 </div>
-
-                <!-- Service Card 6 -->
                 <div class="group p-8 border border-gray-100 rounded-2xl hover:shadow-xl hover:border-sage-200 transition-all duration-300 bg-white">
                     <div class="w-12 h-12 bg-sage-100 rounded-lg flex items-center justify-center mb-6 text-sage-600 group-hover:bg-sage-600 group-hover:text-white transition-colors">
                         <i data-lucide="utensils" class="w-6 h-6"></i>
@@ -333,7 +318,6 @@
     <!-- CTA Banner -->
     <section class="py-12 md:py-16 bg-sage-700 relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-            <!-- Pattern overlay -->
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <pattern id="leaf-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -372,7 +356,6 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Updated Section: Fill Form instead of Call -->
                                 <div class="flex items-start">
                                     <i data-lucide="file-edit" class="w-6 h-6 text-sage-300 mr-4 mt-1"></i>
                                     <div>
@@ -409,7 +392,6 @@
                         <form id="appointmentForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Patient Name</label>
-                                <!-- Added text-base to prevent IOS zoom -->
                                 <input type="text" id="name" required class="w-full px-4 py-2 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-sage-500 outline-none transition-all" placeholder="Enter patient's full name">
                             </div>
                             
@@ -469,14 +451,7 @@
         </div>
     </footer>
 
-    <!-- Toast Notification (Hidden by default) -->
-    <div id="toast" class="fixed bottom-4 right-4 bg-sage-800 text-white px-6 py-4 rounded-lg shadow-xl transform translate-y-full transition-transform duration-300 flex items-center gap-3 z-50">
-        <i data-lucide="message-circle" class="w-6 h-6 text-green-400"></i>
-        <div>
-            <h4 class="font-bold">Opening WhatsApp...</h4>
-            <p class="text-sm text-sage-200">Please hit 'Send' to complete your request.</p>
-        </div>
-    </div>
+    <!-- Toast Notification removed as requested -->
 
     <script>
         // Initialize Lucide Icons
@@ -513,7 +488,7 @@
         function handleFormSubmit(e) {
             e.preventDefault();
             const button = e.target.querySelector('button');
-            const originalText = "Request Callback via WhatsApp"; // Ensure we know the original text
+            const originalText = "Request Callback via WhatsApp"; 
             
             // Get form values
             const name = document.getElementById('name').value;
@@ -523,7 +498,6 @@
             const concern = document.getElementById('concern').value;
 
             // --- WhatsApp Configuration ---
-            // Format: Country Code (91) + Number
             const clinicWhatsApp = "919849076398"; 
             
             const whatsappMessage = 
@@ -544,32 +518,21 @@ _Sent from Sai Homeo Clinic Website_`;
             button.disabled = true;
             button.innerText = "Opening WhatsApp...";
             button.classList.add('opacity-75');
-            
-            const toast = document.getElementById('toast');
-            toast.classList.remove('translate-y-full');
 
-            // 2. Open WhatsApp (Immediate - Critical for Mobile Popup Blockers)
-            // We use a try-catch and specific fallback for reliability
+            // 2. Open WhatsApp (Immediate)
             try {
-                // Attempt to open in new tab/app
                 window.open(whatsappUrl, '_blank');
             } catch (err) {
                 console.error("Popup blocked or error:", err);
-                // Fallback: Redirect current tab if popup fails
                 window.location.href = whatsappUrl;
             }
 
-            // 3. Reset Form UI (After a delay so user sees the feedback)
+            // 3. Reset Form UI
             setTimeout(() => {
                 e.target.reset();
                 button.disabled = false;
                 button.innerText = originalText;
                 button.classList.remove('opacity-75');
-                
-                // Hide Toast
-                setTimeout(() => {
-                    toast.classList.add('translate-y-full');
-                }, 3000);
             }, 1500);
         }
     </script>
